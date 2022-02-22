@@ -28,11 +28,36 @@ body {
   display: none !important;
 }
 
+#header-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+
+  &.fixed-header {
+    box-shadow: 1px -6px 9px 3px #000;
+  }
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.fixed-header {
+  header {
+    height: 80px;
+  }
+}
+
 header {
   height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease;
 
   .menu-right {
     margin-left: auto;

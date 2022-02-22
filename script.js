@@ -1,4 +1,4 @@
-let slides = [
+const slides = [
   {
     id: "slider-hero",
     options: {
@@ -53,4 +53,16 @@ let sliderObj = {};
 slides.forEach((slide, i) => {
   sliderObj[i] = new Glide(`#${slide["id"]}`, slide["options"]);
   sliderObj[i].mount();
+});
+
+const content = document.getElementById("header-wrapper");
+document.addEventListener("scroll", (e) => {
+  var scrolled = document.scrollingElement.scrollTop;
+  var position = content.offsetTop;
+
+  if (scrolled > position) {
+    content.classList.add("fixed-header");
+  } else {
+    content.classList.remove("fixed-header");
+  }
 });
