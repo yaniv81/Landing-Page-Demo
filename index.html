@@ -43,7 +43,7 @@
           </header>
         </div>
       </div>
-      <div class="wrapper">
+      <div class="wrapper card">
         <div id="hero">
           <div class="hero-content">
             <div>
@@ -96,7 +96,7 @@
         </div>
       </div>
       <!--.wrapper-->
-      <div class="row slider-main-row">
+      <div class="row slider-main-row card">
         <div id="slider-middle" class="glide">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -273,7 +273,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-center relative section">
+      <div class="flex flex-center relative section card">
         <div class="half-bg-content bg-right"></div>
         <div class="wrapper flex padding-mobile">
           <div class="flex-item">
@@ -342,7 +342,7 @@
         </div>
       </div>
 
-      <div class="wrapper">
+      <div class="wrapper card">
         <h2 class="bold padding-bottom">Ruang Kerja di dekatmu</h2>
         <div class="items-container">
           <div class="item">
@@ -419,7 +419,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-center relative">
+      <div class="flex flex-center relative card">
         <div class="half-bg-content bg-left"></div>
         <div class="wrapper flex padding-mobile">
           <div id="leftbottom" class="flex-item relative">
@@ -511,5 +511,35 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      const cards = document.querySelectorAll(".card");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => {
+            console.log("a");
+            entry.target.classList.toggle("show", entry.isIntersecting);
+          },
+          { threshold: 0.5 }
+        );
+      });
+
+      cards.forEach((card) => {
+        observer.observe(card);
+      });
+    </script>
+    <style>
+      .container {
+        overflow: hidden;
+      }
+      .card {
+        transform: translate(400px);
+        opacity: 0;
+        transition: 0.7s;
+      }
+      .card.show {
+        transform: translate(0);
+        opacity: 1;
+      }
+    </style>
   </body>
 </html>
